@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Image classifier</title>
+    <title>NNImage</title>
     <script type="text/javascript" src="/eel.js"></script>
     <link rel="icon" type="image/png" href="favicon.svg">
+    <link rel="stylesheet" href="zero_style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Выберите файл для загрузки</h1>
-    <div>
-        
-        <p id="classes">Загрузите изображение класса: самолет, автомобиль, птица, кошка, олень, собака, лягушка, лошадь, лодка, грузовик</p>
-        <div class="pred_div">
-            <p id="pred">Предсказанный класс: </p>
-            <div class="image_probabilities">
-                <img id="uploadedImage" style="height: 200px; width: 200px; display: none;">
-                <div id="class_probabilities">Вероятности: </div>
+    <header class="site-header">
+        <img id="logo_img" src="favicon.png">
+        <div class="logo">
+            <h1>NNImage</h1>
+            <p class="info"> Модель классификации изображений</p>
+        </div>  
+    </header>
+    <div class="container">
+        <div class="content">
+            <p>Выберите модель: </p>
+            <button class="button" id="button1">Обычная модель</button>
+            <button class="button" id="button2">Resnet18</button>        
+            <p id="title">Загрузите изображение, а модель скажет что на нем изображено</p>
+            <div id="pred_div">
+                <div class=" child image">
+                    <img id="uploadedImage">
+                    <p id="pred">Это: </p>
+                </div>
+                <div class="child" id="class_probabilities">Вероятности: </div>
             </div>
+            <input type="file" id="fileUpload">
+            <label for="fileUpload" class="file-label">Выбрать файл</label>
+            <button id="uploadButton">Предсказать</button>
         </div>
-        <input type="file" id="fileUpload">
-        <button id="uploadButton">Загрузить и предсказать</button>
+        <div class="footer"></div>
     </div>
     <script type="text/javascript" src="/functional.js"></script>
 </html>
